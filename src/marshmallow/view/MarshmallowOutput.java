@@ -20,5 +20,18 @@ public class MarshmallowOutput
 		JOptionPane.showMessageDialog(null, "My monster has: " + getMonsterName + " eyes.");
 	}
 	
+	public void showResponse(String wordsFromMonster)
+	{
+		JOptionPane.showMessageDialog(null, wordsFromMonster);
+	}
+	
+	public String grabAnswer(String stuff)
+	{
+		String answer = "";
+		
+		answer = JOptionPane.showInputDialog(null,stuff);
+		
+		return answer;
+	}
 
 }

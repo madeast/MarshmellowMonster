@@ -12,6 +12,7 @@ public class MonsterController
 	private MarshmallowOutput myOutput;
 	private Scanner monsterScanner;
 	
+	
 	public MonsterController()
 	{
 		int eyes = 4;
@@ -24,6 +25,7 @@ public class MonsterController
 		monsterScanner = new Scanner(System.in);
 		myOutput = new MarshmallowOutput();
 		ashMonster = new MarshmallowMonster(name, eyes, nose, hair, legs, hasBellyButton);	
+		
 	}
 
 	public void start()
@@ -38,8 +40,13 @@ public class MonsterController
 	
 	private void askQuestions()
 	{
-		System.out.println("Type in a better name for the monster");
-		String betterMonsterName = monsterScanner.next();
+		String betterMonsterName = myOutput.grabAnswer("Type in a better name.");
+		myOutput.showResponse("You typed in: " + betterMonsterName);
+		String betterMonsterEyes = myOutput.grabAnswer("Type in how many eyes the monster have.");
+		while(!isInteger(betterMonsterEyes))
+		{
+			betterMonsterEyes = myOuput.grabAnswer("Type in a positive integer for the monster eyes.")
+		}
 		
 		System.out.println("Type in a new number of eyes");
 		int betterMonsterEyes = monsterScanner.nextInt();
