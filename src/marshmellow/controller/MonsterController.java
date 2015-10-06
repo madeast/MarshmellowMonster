@@ -19,7 +19,7 @@ public class MonsterController
 		int nose = 1;
 		double hair = 2;
 		boolean hasBellyButton = false;
-		String name = "Spindle the Spider";
+		String name = "Murray the Monster";
 
 		monsterScanner = new Scanner(System.in);
 		myOutput = new MarshmallowOutput();
@@ -43,34 +43,73 @@ public class MonsterController
 		String betterMonsterName = myOutput.grabAnswer("Type in a better name.");
 		myOutput.showResponse("You typed in: " + betterMonsterName);
 
-		String betterMonsterEyes = myOutput.grabAnswer("Type in how many eyes the monster have.");
+		String betterMonsterEyes = myOutput.grabAnswer("Type in how many eyes you want the monster have.");
 		int inputEyes;
-		
+
+		String betterMonsterNose = myOutput.grabAnswer("Type in how many nostirls you want the monster to have.");
+		int inputNose;
+
+		String betterMonsterLegs = myOutput.grabAnswer("Type in how many legs you want your monster to have.");
+		double inputLegs;
+
+		String betterMonsterHair = myOutput.grabAnswer("Type in how many strands of hair you want your monster to have.");
+		double inputHair;
+
 		while (!isInteger(betterMonsterEyes))
 		{
 			betterMonsterEyes = myOutput.grabAnswer("Type in a positive integer for the monster eyes.");
 		}
-		
-		if (!isInteger(betterMonsterEyes))
+
+		while (!isInteger(betterMonsterNose))
+		{
+			betterMonsterNose = myOutput.grabAnswer("Type in a positive integer for the monster legs.");
+		}
+
+		while (!isDouble(betterMonsterLegs))
+		{
+			betterMonsterLegs = Double.parseDouble(betterMonsterLegs);
+		}
+		while (!isDouble(betterMonsterHair))
+		{
+			betterMonsterHair = Double.parseDouble(betterMonsterHair);
+		}
+
+		if (isInteger(betterMonsterEyes))
 		{
 			inputEyes = Integer.parseInt(betterMonsterEyes);
+
 		}
 		else
 		{
 			inputEyes = -999;
 		}
 
-		System.out.println("Type in a new number of eyes");
-		int betterMonsterEyes = monsterScanner.nextInt();
+		if (isInteger(betterMonsterNose))
+		{
+			inputNose = Integer.parseInt(betterMonsterNose);
+		}
+		else
+		{
+			inputNose = -999;
+		}
 
-		System.out.println("Type in a new number of legs");
-		double betterMonsterLegs = monsterScanner.nextDouble();
+		if (isDouble(betterMonsterLegs))
+		{
+			inputLegs = Double.parseDouble(betterMonsterLegs);
+		}
+		else
+		{
+			inputLegs = -999;
+		}
 
-		System.out.println("Type in a new number of noses");
-		int betterMonsterNose = monsterScanner.nextInt();
-
-		System.out.println("Type in a new number of hair");
-		double betterMonsterHair = monsterScanner.nextDouble();
+		if (isDouble(betterMonsterHair))
+		{
+			inputHair = Double.parseDouble(betterMonsterHair);
+		}
+		else
+		{
+			inputHair = -999;
+		}
 
 		System.out.println("Will it have a bellybutton?(True/False)");
 		boolean betterMonsterBellyButton = monsterScanner.nextBoolean();
@@ -87,49 +126,60 @@ public class MonsterController
 	 * This method will get the information to create an instance of a
 	 * MarshmallowMonster.
 	 */
-	/*private void makeUserMonster()
-	{
-		// Step one: Get variables
-		String userName;
-		int userEyes;
-		int userNoseCount;
-		double userHair;
-		double userLegs;
-		boolean userBellyButton;
+	/*
+	 * private void makeUserMonster() { // Step one: Get variables String
+	 * userName; int userEyes; int userNoseCount; double userHair; double
+	 * userLegs; boolean userBellyButton;
+	 * 
+	 * // Step two:Define variables by using Scanner to get inputs
+	 * System.out.println("Type in your name for your monster."); userName =
+	 * monsterScanner.nextLine();
+	 * System.out.println("Type in the number of eyes for your monster.");
+	 * userEyes = monsterScanner.nextInt();
+	 * System.out.println("Type in number of Noses."); userNoseCount =
+	 * monsterScanner.nextInt(); System.out.println("Type in number of hair.");
+	 * userHair = monsterScanner.nextDouble();
+	 * System.out.println("Type in new number of legs."); userLegs =
+	 * monsterScanner.nextDouble();
+	 * System.out.println("Does it have a bellybutton?(True/False)");
+	 * userBellyButton = monsterScanner.nextBoolean();
+	 * 
+	 * // Step three: Make a monster - use the Constructor! userMonster = new
+	 * MarshmallowMonster(userName, userEyes, userNoseCount, userHair, userLegs,
+	 * userBellyButton);
+	 * 
+	 * }
+	 */
 
-		// Step two:Define variables by using Scanner to get inputs
-		System.out.println("Type in your name for your monster.");
-		userName = monsterScanner.nextLine();
-		System.out.println("Type in the number of eyes for your monster.");
-		userEyes = monsterScanner.nextInt();
-		System.out.println("Type in number of Noses.");
-		userNoseCount = monsterScanner.nextInt();
-		System.out.println("Type in number of hair.");
-		userHair = monsterScanner.nextDouble();
-		System.out.println("Type in new number of legs.");
-		userLegs = monsterScanner.nextDouble();
-		System.out.println("Does it have a bellybutton?(True/False)");
-		userBellyButton = monsterScanner.nextBoolean();
-
-		// Step three: Make a monster - use the Constructor!
-		userMonster = new MarshmallowMonster(userName, userEyes, userNoseCount, userHair, userLegs, userBellyButton);
-
-	}*/
-	
 	private boolean isInteger(String input)
 	{
 		boolean isInt = false;
-		
+
 		try
 		{
-			int inputEyes = Integer.parseInt(input);
+			int validInt = Integer.parseInt(input);
 			isInt = true;
 		}
 		catch (NumberFormatException error)
 		{
 			myOutput.showResponse("Not a valid Integer - bad value will be used.");
 		}
-		
+
 		return isInt;
+
+	}
+
+	private boolean isDouble(String input)
+	{
+		boolean isDouble = false;
+
+		try
+		{
+			double inputLegs = Integer.parseDouble(input);
+		}
+		catch (NumberFormatException error)
+		{
+			myOutput.showResponse("Not a valid Integer - bad value will be used.");
+		}
 	}
 }
