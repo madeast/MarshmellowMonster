@@ -46,7 +46,6 @@ public class MonsterController
 		String betterMonsterEyes = myOutput.grabAnswer("Type in how many eyes you want the monster have.");
 		int inputEyes;
 
-
 		String betterMonsterNose = myOutput.grabAnswer("Type in how many nostirls you want the monster to have.");
 		int inputNose;
 
@@ -63,56 +62,48 @@ public class MonsterController
 
 		while (!isInteger(betterMonsterNose))
 		{
-			betterMonsterNose = myOutput.grabAnswer("Type in a positive integer for the monster legs.");
+			betterMonsterNose = myOutput.grabAnswer("Type in a positive integer for the monsters nostrils.");
 		}
-
+		
 		while (!isDouble(betterMonsterLegs))
 		{
-			betterMonsterLegs = Double.parseDouble(betterMonsterLegs);
+			betterMonsterLegs = myOutput.grabAnswer("Type in a positive integer for the monsters legs.");
 		}
 		while (!isDouble(betterMonsterHair))
 		{
-			betterMonsterHair = Double.parseDouble(betterMonsterHair);
+			betterMonsterHair = myOutput.grabAnswer("Type in a positive integer for the monsters hair.");
 		}
 
+
+
+	
+		
 		if (isInteger(betterMonsterEyes))
-=======
-		
-		while (!isEyeInteger(betterMonsterEyes))
-		{
-			betterMonsterEyes = myOutput.grabAnswer("Type in a positive integer for the monster eyes.");
-		}
-		
-		if (!isEyeInteger(betterMonsterEyes))
->>>>>>> Stashed changes
+
 		{
 			inputEyes = Integer.parseInt(betterMonsterEyes);
+			myOutput.showResponse("The monster has " + betterMonsterEyes + " eyes.");
 
 		}
 		else
 		{
 			inputEyes = -999;
 		}
-		myOutput.showResponse("The monster has " + betterMonsterEyes + " eyes.");
 		
-		String betterMonsterNose = myOutput.grabAnswer("Type in how many nostrils the monster has.");
-		int inputNose;
-		while (!isNoseInteger(betterMonsterNose))
+		
+		
+		
+		if(isInteger(betterMonsterNose))
 		{
 			inputNose = Integer.parseInt(betterMonsterNose);
-		}
-		
-		if(!isNoseInteger(betterMonsterNose))
-		{
-			inputNose = Integer.parseInt(betterMonsterNose);
+			myOutput.showResponse("The monster has " + inputNose + "nostrils.");
 		}
 		else
 		{
 			inputNose = -999;
 		}
-		myOutput.showResponse("The monster has " + inputNose + "nostrils.");
 		
-		String betterMonsterLegs
+		
 
 
 		if (isInteger(betterMonsterNose))
@@ -123,10 +114,7 @@ public class MonsterController
 		{
 			inputNose = -999;
 		}
-=======
-
 		
->>>>>>> Stashed changes
 
 		if (isDouble(betterMonsterLegs))
 		{
@@ -157,83 +145,16 @@ public class MonsterController
 		ashMonster.setMonsterBellyButton(betterMonsterBellyButton);
 	}
 
-	/**
-	 * This method will get the information to create an instance of a
-	 * MarshmallowMonster.
-	 */
-
-	/*
-	 * private void makeUserMonster() { // Step one: Get variables String
-	 * userName; int userEyes; int userNoseCount; double userHair; double
-	 * userLegs; boolean userBellyButton;
-	 * 
-	 * // Step two:Define variables by using Scanner to get inputs
-	 * System.out.println("Type in your name for your monster."); userName =
-	 * monsterScanner.nextLine();
-	 * System.out.println("Type in the number of eyes for your monster.");
-	 * userEyes = monsterScanner.nextInt();
-	 * System.out.println("Type in number of Noses."); userNoseCount =
-	 * monsterScanner.nextInt(); System.out.println("Type in number of hair.");
-	 * userHair = monsterScanner.nextDouble();
-	 * System.out.println("Type in new number of legs."); userLegs =
-	 * monsterScanner.nextDouble();
-	 * System.out.println("Does it have a bellybutton?(True/False)");
-	 * userBellyButton = monsterScanner.nextBoolean();
-	 * 
-	 * // Step three: Make a monster - use the Constructor! userMonster = new
-	 * MarshmallowMonster(userName, userEyes, userNoseCount, userHair, userLegs,
-	 * userBellyButton);
-	 * 
-	 * }
-	 */
-
+	
 	private boolean isInteger(String input)
 	{
 		boolean isInt = false;
-
-		try
-		{
-			int validInt = Integer.parseInt(input);
-			isInt = true;
-=======
-	/*private void makeUserMonster()
-	{
-		// Step one: Get variables
-		String userName;
-		int userEyes;
-		int userNoseCount;
-		double userHair;
-		double userLegs;
-		boolean userBellyButton;
-
-		// Step two:Define variables by using Scanner to get inputs
-		System.out.println("Type in your name for your monster.");
-		userName = monsterScanner.nextLine();
-		System.out.println("Type in the number of eyes for your monster.");
-		userEyes = monsterScanner.nextInt();
-		System.out.println("Type in number of Noses.");
-		userNoseCount = monsterScanner.nextInt();
-		System.out.println("Type in number of hair.");
-		userHair = monsterScanner.nextDouble();
-		System.out.println("Type in new number of legs.");
-		userLegs = monsterScanner.nextDouble();
-		System.out.println("Does it have a bellybutton?(True/False)");
-		userBellyButton = monsterScanner.nextBoolean();
-
-		// Step three: Make a monster - use the Constructor!
-		userMonster = new MarshmallowMonster(userName, userEyes, userNoseCount, userHair, userLegs, userBellyButton);
-
-	}*/
-	
-	private boolean isEyeInteger(String input)
-	{
-		boolean isEyeInt = false;
 		
 		try
 		{
 			int inputEyes = Integer.parseInt(input);
-			isEyeInt = true;
->>>>>>> Stashed changes
+			isInt = true;
+
 		}
 		catch (NumberFormatException error)
 		{
@@ -251,32 +172,13 @@ public class MonsterController
 
 		try
 		{
-			double inputLegs = Integer.parseDouble(input);
+			double inputLegs = Double.parseDouble(input);
 		}
 		catch (NumberFormatException error)
 		{
 			myOutput.showResponse("Not a valid Integer - bad value will be used.");
 		}
-=======
-		
-		return isEyeInt;
->>>>>>> Stashed changes
+
+		return isDouble;
 	}
-	private boolean isNoseInteger(String input)
-	{
-		boolean isNoseInt = false;
-		
-		try
-		{
-			int inputNose = Integer.parseInt(input);
-			isNoseInt = true;
-		}
-		catch (NumberFormatException error)
-		{
-			myOutput.showResponse("not a valid Integer - bad value will be used.");
-		}
-		
-		return isNoseInt;
-	}
-	
 }
