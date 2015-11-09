@@ -138,10 +138,10 @@ public class MonsterController
 		boolean betterMonsterBellyButton = monsterScanner.nextBoolean();
 
 		ashMonster.setMonsterName(betterMonsterName);
-		ashMonster.setMonsterEyes(betterMonsterEyes);
-		ashMonster.setMonsterLegs(betterMonsterLegs);
-		ashMonster.setMonsterNose(betterMonsterNose);
-		ashMonster.setMonsterHair(betterMonsterHair);
+		//ashMonster.setMonsterEyes(betterMonsterEyes);
+		//ashMonster.setMonsterLegs(betterMonsterLegs);
+		//ashMonster.setMonsterNose(betterMonsterNose);
+		//ashMonster.setMonsterHair(betterMonsterHair);
 		ashMonster.setMonsterBellyButton(betterMonsterBellyButton);
 	}
 
